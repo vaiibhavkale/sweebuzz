@@ -7,11 +7,13 @@ import 'core/app_export.dart';
 import 'package:sweebuzz/theme/theme_helper.dart';
 import 'package:sweebuzz/routes/app_routes.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
+
+  await FlutterDisplayMode.setHighRefreshRate();
 
   ///Please update theme as per your need if required.
   ThemeHelper().changeTheme('primary');
