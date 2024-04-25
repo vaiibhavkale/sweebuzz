@@ -1,3 +1,7 @@
+import 'package:sweebuzz/presentation/chat_screen/chat_screen.dart';
+import 'package:sweebuzz/presentation/main_blog_screen/main_blog_screen.dart';
+import 'package:sweebuzz/presentation/notifications_tab_container_screen/notifications_tab_container_screen.dart';
+
 import '../blog_screen/widgets/userprofile3_item_widget.dart';
 import 'package:sweebuzz/core/app_export.dart';
 import 'package:sweebuzz/presentation/home_page/home_page.dart';
@@ -39,23 +43,27 @@ class BlogScreen extends StatelessWidget {
                           AppbarTitle(
                               text: "lbl_blogs".tr,
                               margin: EdgeInsets.only(left: 12.h, top: 43.v)),
+                          // AppbarImage3(
+                          //     svgPath: ImageConstant.imgNotification,
+                          //     margin: EdgeInsets.only(
+                          //         left: 240.h, top: 40.v, bottom: 10.v),
+                          //     ),
                           AppbarImage3(
                               svgPath: ImageConstant.imgNotification,
-                              margin: EdgeInsets.only(
-                                  left: 240.h, top: 47.v, bottom: 10.v),
+                              margin: EdgeInsets.only(left: 240.h, top: 47.v, bottom: 10.v),
                               onTap: () {
                                 onTapNotification(context);
                               }),
                           AppbarImage3(
-                              svgPath: ImageConstant.imgNotification,
-                              margin: EdgeInsets.only(top: 47.v, bottom: 10.v)),
-                          AppbarImage3(
                               svgPath: ImageConstant.imgMessage2,
                               margin: EdgeInsets.only(
-                                  left: 16.h, top: 45.v, bottom: 10.v)),
-                          AppbarImage3(
-                              svgPath: ImageConstant.imgMessage2,
-                              margin: EdgeInsets.only(top: 45.v, bottom: 10.v))
+                                  left: 16.h, top: 45.v, bottom: 10.v),
+                                  onTap: () {
+                                      navigatotoMessage(context);
+                                  }),
+                          // AppbarImage3(
+                          //     svgPath: ImageConstant.imgMessage2,
+                          //     margin: EdgeInsets.only(top: 45.v, bottom: 10.v))
                         ])),
                 styleType: Style.bgFill),
             body: Container(
@@ -105,11 +113,12 @@ class BlogScreen extends StatelessWidget {
                             });
                           }))
                 ])),
-            bottomNavigationBar:
-                CustomBottomBar(onChanged: (BottomBarEnum type) {
-              Navigator.pushNamed(
-                  navigatorKey.currentContext!, getCurrentRoute(type));
-            })));
+            // bottomNavigationBar:
+            //     CustomBottomBar(onChanged: (BottomBarEnum type) {
+            //   Navigator.pushNamed(
+            //       navigatorKey.currentContext!, getCurrentRoute(type));
+            // })
+            ));
   }
 
   ///Handling route based on bottom click actions
@@ -147,8 +156,11 @@ class BlogScreen extends StatelessWidget {
   /// The [BuildContext] parameter is used to build the navigation stack.
   /// When the action is triggered, this function uses the [Navigator] widget
   /// to push the named route for the mainBlogScreen.
-  onTapUserButtonText(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.mainBlogScreen);
+  void onTapUserButtonText(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => MainBlogScreen()),
+    );
   }
 
   /// Navigates to the notificationsTabContainerScreen when the action is triggered.
@@ -156,7 +168,17 @@ class BlogScreen extends StatelessWidget {
   /// The [BuildContext] parameter is used to build the navigation stack.
   /// When the action is triggered, this function uses the [Navigator] widget
   /// to push the named route for the notificationsTabContainerScreen.
-  onTapNotification(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.notificationsTabContainerScreen);
+  void onTapNotification(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => NotificationsTabContainerScreen()),
+    );
+  }
+
+  void navigatotoMessage(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ChatScreen()),
+    );
   }
 }

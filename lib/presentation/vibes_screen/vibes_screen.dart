@@ -234,11 +234,12 @@ class VibesScreen extends StatelessWidget {
                                                 ]))))
                               ])))
                 ])),
-            bottomNavigationBar:
-                CustomBottomBar(onChanged: (BottomBarEnum type) {
-              Navigator.pushNamed(
-                  navigatorKey.currentContext!, getCurrentRoute(type));
-            })));
+            // bottomNavigationBar:
+            //     CustomBottomBar(onChanged: (BottomBarEnum type) {
+            //   Navigator.pushNamed(
+            //       navigatorKey.currentContext!, getCurrentRoute(type));
+            // })
+            ));
   }
 
   String getCurrentRoute(BottomBarEnum type) {

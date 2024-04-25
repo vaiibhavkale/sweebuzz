@@ -1,3 +1,9 @@
+import 'package:sweebuzz/presentation/blog_screen/blog_screen.dart';
+import 'package:sweebuzz/presentation/chat_screen/chat_screen.dart';
+import 'package:sweebuzz/presentation/notifications_tab_container_screen/notifications_tab_container_screen.dart';
+import 'package:sweebuzz/presentation/vibes_screen/vibes_screen.dart';
+import 'package:sweebuzz/presentation/vlog_screen/vlog_screen.dart';
+
 import '../home_page/widgets/userprofilestac_item_widget.dart';
 import 'package:sweebuzz/core/app_export.dart';
 import 'package:sweebuzz/widgets/app_bar/appbar_subtitle.dart';
@@ -284,12 +290,12 @@ class HomePage extends StatelessWidget {
                                                                           child: Text(
                                                                               "lbl_vibes".tr,
                                                                               style: CustomTextStyles.titleMediumPrimarySemiBold_1)),
-                                                                      Align(
-                                                                          alignment: Alignment
-                                                                              .center,
-                                                                          child: Text(
-                                                                              "lbl_vibes".tr,
-                                                                              style: CustomTextStyles.titleMediumPrimarySemiBold_1))
+                                                                      // Align(
+                                                                      //     alignment: Alignment
+                                                                      //         .center,
+                                                                      //     child: Text(
+                                                                      //         "lbl_vibes".tr,
+                                                                      //         style: CustomTextStyles.titleMediumPrimarySemiBold_1))
                                                                     ]))))
                                                   ]))),
                                       CustomOutlinedButton(
@@ -1183,28 +1189,46 @@ class HomePage extends StatelessWidget {
     Navigator.pushNamed(context, AppRoutes.addStoryScreen);
   }
 
-  onTapImgNotification(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.notificationsTabContainerScreen);
+  void onTapImgNotification(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => NotificationsTabContainerScreen()),
+    );
   }
 
-  navigatetoNotification(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.notificationsTabContainerScreen);
+  void navigatetoNotification(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => NotificationsTabContainerScreen()),
+    );
   }
 
-  navigatotoMessage(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.chatScreen);
+  void navigatotoMessage(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ChatScreen()),
+    );
   }
 
-  navigationtovibe(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.vibesScreen);
+  void navigationtovibe(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => VibesScreen()),
+    );
   }
 
-  onTapBlogs(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.blogScreen);
+  void onTapBlogs(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => BlogScreen()),
+    );
   }
 
-  onTapVlogs(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.vlogsScreen);
+  void onTapVlogs(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => VlogScreen()),
+    );
   }
   
 }

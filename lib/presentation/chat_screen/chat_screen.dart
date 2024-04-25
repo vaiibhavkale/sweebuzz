@@ -1,3 +1,8 @@
+import 'package:sweebuzz/presentation/chat_groups_three_screen/chat_groups_three_screen.dart';
+import 'package:sweebuzz/presentation/chat_one_screen/chat_one_screen.dart';
+import 'package:sweebuzz/presentation/chat_requests_screen/chat_requests_screen.dart';
+import 'package:sweebuzz/widgets/custom_chat_bottom_bar.dart';
+
 import '../chat_screen/widgets/userprofilerow_item_widget.dart';
 import 'package:sweebuzz/core/app_export.dart';
 import 'package:sweebuzz/presentation/home_page/home_page.dart';
@@ -17,6 +22,7 @@ class ChatScreen extends StatelessWidget {
   ChatScreen({Key? key}) : super(key: key);
   GlobalKey<NavigatorState> navigatorKey = GlobalKey();
   TextEditingController searchController = TextEditingController();
+  
   @override
   Widget build(BuildContext context) {
     mediaQueryData = MediaQuery.of(context);
@@ -28,7 +34,7 @@ class ChatScreen extends StatelessWidget {
                 leading: AppbarImage1(
                     svgPath: ImageConstant.imgArrowleftRedA200,
                     margin:
-                        EdgeInsets.only(left: 19.h, top: 18.v, bottom: 17.v),
+                        EdgeInsets.only(left: 19.h, top: 14.v, bottom: 17.v),
                     onTap: () {
                       onTapArrowleftone(context);
                     }),
@@ -96,23 +102,22 @@ class ChatScreen extends StatelessWidget {
                                   })))
                     ])),
             bottomNavigationBar:
-                CustomBottomBar(onChanged: (BottomBarEnum type) {
-              Navigator.pushNamed(
+                CustomChatBottomBar(onChanged: (ChatBottomBarEnum type) {
+                        Navigator.pushNamed(
                   navigatorKey.currentContext!, getCurrentRoute(type));
-            })));
+            })
+            ));
   }
 
   ///Handling route based on bottom click actions
-  String getCurrentRoute(BottomBarEnum type) {
+  String getCurrentRoute(ChatBottomBarEnum type) {
     switch (type) {
-      case BottomBarEnum.Home1:
-        return AppRoutes.homePage;
-      case BottomBarEnum.Search:
-        return AppRoutes.searchTwoTabContainerPage;
-      case BottomBarEnum.Close:
-        return "/";
-      case BottomBarEnum.Eye:
-        return AppRoutes.profileBlogsOnePage;
+      case ChatBottomBarEnum.chat:
+        return AppRoutes.chatScreen;
+      case ChatBottomBarEnum.group:
+        return AppRoutes.chatGroupsThreeScreen;
+      case ChatBottomBarEnum.request:
+        return AppRoutes.chatRequestsScreen;
       default:
         return "/";
     }
@@ -121,14 +126,14 @@ class ChatScreen extends StatelessWidget {
   ///Handling page based on route
   Widget getCurrentPage(String currentRoute) {
     switch (currentRoute) {
-      case AppRoutes.homePage:
-        return HomePage();
-      case AppRoutes.searchTwoTabContainerPage:
-        return SearchTwoTabContainerPage();
-      case AppRoutes.profileBlogsOnePage:
-        return ProfileBlogsOnePage();
+      case AppRoutes.chatScreen:
+        return ChatScreen();
+      case AppRoutes.chatGroupsThreeScreen:
+        return ChatGroupsThreeScreen();
+      case AppRoutes.chatRequestsScreen:
+        return ChatRequestsScreen();
       default:
-        return DefaultWidget();
+        return DefaultChatWidget();
     }
   }
 
@@ -137,8 +142,11 @@ class ChatScreen extends StatelessWidget {
   /// The [BuildContext] parameter is used to build the navigation stack.
   /// When the action is triggered, this function uses the [Navigator] widget
   /// to push the named route for the chatOneScreen.
-  onTapUserprofilerow(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.chatOneScreen);
+  void onTapUserprofilerow(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ChatOneScreen()),
+    );
   }
 
   /// Navigates back to the previous screen.
