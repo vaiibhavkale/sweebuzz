@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_displaymode/flutter_displaymode.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'core/app_export.dart';
 import 'package:sweebuzz/theme/theme_helper.dart';
@@ -42,3 +43,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+

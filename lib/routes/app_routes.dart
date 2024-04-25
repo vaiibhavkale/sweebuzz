@@ -89,21 +89,19 @@ class AppRoutes {
 
   static const String notificationsPage = '/notifications_page';
 
-  static const String notificationsTabContainerScreen =
-      '/notifications_tab_container_screen';
+  static const String notificationsTabContainerScreen = '/notifications_tab_container_screen';
 
   static const String notificationsRequestPage = '/notifications_request_page';
 
   static const String notificationsLikesPage = '/notifications_likes_page';
 
-  static const String notificationsMentionsPage =
-      '/notifications_mentions_page';
+  static const String notificationsMentionsPage = '/notifications_mentions_page';
+  
   static const String frameTenScreen = '/frame_ten_screen';
 
   static const String profileVibesPage = '/profile_vibes_page';
 
-  static const String profileVibesTabContainerScreen =
-      '/profile_vibes_tab_container_screen';
+  static const String profileVibesTabContainerScreen = '/profile_vibes_tab_container_screen';
 
   static const String profileBlogsOnePage = '/profile_blogs_one_page';
 

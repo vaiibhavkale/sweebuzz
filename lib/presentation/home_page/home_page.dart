@@ -268,8 +268,7 @@ class HomePage extends StatelessWidget {
                                                             Alignment.center,
                                                         child: GestureDetector(
                                                             onTap: () {
-                                                              navigationtovibe(
-                                                                  context);
+                                                              navigationtovibe(context);
                                                             },
                                                             child: SizedBox(
                                                                 height: 24.v,

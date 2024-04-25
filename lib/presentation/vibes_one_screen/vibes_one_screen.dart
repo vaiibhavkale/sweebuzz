@@ -8,9 +8,12 @@ import 'package:sweebuzz/widgets/app_bar/custom_app_bar.dart';
 import 'package:sweebuzz/widgets/custom_bottom_bar.dart';
 import 'package:flutter/material.dart';
 
+import '../frame_ten_screen/frame_ten_screen.dart';
+
 class VibesOneScreen extends StatelessWidget {
   VibesOneScreen({Key? key}) : super(key: key);
   GlobalKey<NavigatorState> navigatorKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     mediaQueryData = MediaQuery.of(context);
@@ -265,7 +268,7 @@ class VibesOneScreen extends StatelessWidget {
       case BottomBarEnum.Search:
         return AppRoutes.searchTwoTabContainerPage;
       case BottomBarEnum.Close:
-        return "/";
+        return AppRoutes.frameTenScreen;
       case BottomBarEnum.Eye:
         return AppRoutes.profileBlogsOnePage;
       default:
@@ -279,6 +282,8 @@ class VibesOneScreen extends StatelessWidget {
         return HomePage();
       case AppRoutes.searchTwoTabContainerPage:
         return SearchTwoTabContainerPage();
+      case AppRoutes.frameTenScreen:
+        return FrameTenScreen();
       case AppRoutes.profileBlogsOnePage:
         return ProfileBlogsOnePage();
       default:

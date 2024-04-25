@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 class HomeContainerScreen extends StatelessWidget {
   HomeContainerScreen({Key? key}) : super(key: key);
   GlobalKey<NavigatorState> navigatorKey = GlobalKey();
+  
   @override
   Widget build(BuildContext context) {
     mediaQueryData = MediaQuery.of(context);
